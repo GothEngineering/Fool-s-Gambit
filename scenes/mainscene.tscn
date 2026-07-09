@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bevis8uoimewd"]
 
-[ext_resource type="Script" uid="uid://cs3c037agpss3" path="res://ruletarusa.gd" id="1_wtdyi"]
-[ext_resource type="PackedScene" uid="uid://b20x7jhe848sq" path="res://your_blood.tscn" id="2_5lfti"]
-[ext_resource type="Script" uid="uid://c7xu16xfktvk8" path="res://rounds_counter.gd" id="2_dn5c8"]
+[ext_resource type="Script" uid="uid://cs3c037agpss3" path="res://scripts/ruletarusa.gd" id="1_wtdyi"]
+[ext_resource type="PackedScene" uid="uid://b20x7jhe848sq" path="res://scenes/your_blood.tscn" id="2_5lfti"]
+[ext_resource type="Script" uid="uid://c7xu16xfktvk8" path="res://scripts/rounds_counter.gd" id="2_dn5c8"]
 [ext_resource type="Texture2D" uid="uid://ckj5lg11tsvs7" path="res://assets/revolvercylinder.png" id="2_xtb1e"]
 [ext_resource type="FontFile" uid="uid://q01jknyoh0o7" path="res://fonts/PixelOperator8.ttf" id="5_76yo1"]
-[ext_resource type="Script" uid="uid://d4jqepr0vgx4s" path="res://bulletshud.gd" id="5_fl65m"]
+[ext_resource type="Script" uid="uid://d4jqepr0vgx4s" path="res://scripts/bulletshud.gd" id="5_fl65m"]
 [ext_resource type="Texture2D" uid="uid://clm6ne5cc6jyg" path="res://assets/BulletIcon.png" id="5_sbvtr"]
 [ext_resource type="FontFile" uid="uid://dot26ai7w8tov" path="res://fonts/PixelOperator8-Bold.ttf" id="6_4ofsq"]
 [ext_resource type="AudioStream" uid="uid://d2vmutbpex2hv" path="res://sounds/revolver_gunshot.wav" id="8_0ibrq"]
@@ -73,6 +73,16 @@ horizontal_alignment = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1030066192]
 process_mode = 3
 
+[node name="Gore" type="Label" parent="CanvasLayer" unique_id=1835476201]
+offset_top = 608.0
+offset_right = 232.0
+offset_bottom = 643.0
+theme_override_fonts/font = ExtResource("6_4ofsq")
+text = "Blood Splatters:
+Off"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Instructions" type="Label" parent="CanvasLayer" unique_id=872343545]
 offset_left = 322.0
 offset_top = 21.0
@@ -85,7 +95,30 @@ Right mouse to pull the trigger
 
 Reload with \"R\", you can't unload the chamber
 
-Press \"B\" for Blood Mode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Press \"B\" for blood splatters
 
 "
 horizontal_alignment = 1

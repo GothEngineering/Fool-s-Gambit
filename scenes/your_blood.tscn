@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b20x7jhe848sq"]
+
+[ext_resource type="Script" uid="uid://n1ey1nnnqwr4" path="res://your_blood.gd" id="1_i1ryv"]
+[ext_resource type="Texture2D" uid="uid://bnx3cfm66rby7" path="res://assets/blood_splat_1.png" id="2_wdg72"]
+[ext_resource type="Texture2D" uid="uid://gng1uyv1tv8v" path="res://assets/blood_splat_3.png" id="4_iq45c"]
+
+[node name="YourBlood1" type="Sprite2D" unique_id=1609145010]
+script = ExtResource("1_i1ryv")
+blood_splatters = Array[Texture]([ExtResource("2_wdg72"), ExtResource("4_iq45c")])

@@ -15,6 +15,7 @@ extends Node2D
 @onready var bullets_container: HBoxContainer = $CanvasLayer/BulletsContainer
 @onready var instructions: Label = $CanvasLayer/Instructions
 @onready var one_more_game: Label = $CanvasLayer/OneMoreGame
+@onready var gore: Label = $CanvasLayer/Gore
 
 #======== SFX and timers ========
 @onready var bang___: AudioStreamPlayer = $"BANG!!!"
@@ -66,6 +67,7 @@ func _process(delta: float):
 		print("Current chamber: ", chamber)
 		print("Current chamber rotation: ", chamber_rotation)
 		print("The bullets in the chamber: ", bullets_in_chamber)
+		print("Current hesitation: ", hesitation)  
 
 	if Input.is_action_just_pressed("R key"):
 		if pulling_the_trigger:
@@ -101,17 +103,21 @@ func _process(delta: float):
 	if Input.is_action_just_pressed("B stands for Blood"):
 		nsfw_mode = !nsfw_mode
 		if nsfw_mode == true:
-			print("ULTRAVIOLENCE!!!")
+			gore.text = """Blood Splatters: 
+				ON"""
+			gore.modulate = Color.RED
 			blood_bank.show()
 		else:
-			print("Safe For Work")
+			gore.text = """Blood Splatters: 
+				Off"""
+			gore.modulate = Color.WHITE
 			blood_bank.hide()
 
 	revolver_cylinder.rotation_degrees = lerp(revolver_cylinder.rotation_degrees, chamber_rotation, 0.1)
 
 func dissapear_instructions(object):
 	var instructionsfadeout = create_tween()
-	instructionsfadeout.tween_property(object, "modulate:a", 0.0, 10.0)
+	instructionsfadeout.tween_property(object, "modulate:a", 0.0, 20.0)
 	instructionsfadeout.tween_callback(object.hide)
 
 func spin_the_cylinder(number_of_spins = 1):
@@ -162,6 +168,7 @@ func keep_playing():
 	bullet_used.emit(bullets_in_chamber)
 	one_more_game.show()
 	dissapear_instructions(one_more_game)
+	hesitation = 0
 	if nsfw_mode == true:
 		do_blood_splatters()
 
